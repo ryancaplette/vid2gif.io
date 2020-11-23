@@ -69,7 +69,7 @@ function App() {
       <br/>
       <br/>
       
-      <button id="convert-button" onClick={convertVidToGif}>Convert</button>
+      {video && <button id="convert-button" onClick={convertVidToGif}>Convert</button>}
     </div>
 
       <div className="progress-bar" style={{display: (progress < 1) ? 'block' : 'none'}}>
