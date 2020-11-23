@@ -13,7 +13,8 @@ function App() {
   const [progressMessage, setProgressMessage] = useState(1);
 
   const load = async () => {
-    await ffmpeg.load();
+    console.log(ffmpeg);
+    const what = await ffmpeg.load();
     setFfmpegLoaded(true);
   }
 
@@ -87,7 +88,7 @@ function App() {
       </main>
     </div>
   ) :
-  (<p>Loading...</p>);
+  (<p>Loading ffmpeg... (may not work on some mobile devices)</p>);
 }
 
 export default App;
