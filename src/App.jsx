@@ -27,7 +27,7 @@ function App() {
 
     ffmpeg.FS('writeFile', 'video-in-memory', await fetchFile(video));
 
-    await ffmpeg.run('-i', 'video-in-memory', '-t', '2.5', '-ss', '2.0', '-f', 'gif', 'out.gif');
+    await ffmpeg.run('-i', 'video-in-memory', '-r', '20', '-f', 'gif', 'out.gif');
 
     const data = ffmpeg.FS('readFile', 'out.gif');
 
