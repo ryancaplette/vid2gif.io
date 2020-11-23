@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-top: 1%
 }
 .App code {
   background: #FFF3;
@@ -42,4 +43,91 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  color: #000;
+  background-color: white;
+  border:0.1em solid #000;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+#convert-button {
+  background-color: white;
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #000;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color:#000;
+  text-align:center;
+  transition: all 0.2s;
+  border-radius: 5px;
+}
+
+#convert-button:hover{
+  color:#000000;
+  background-color:#FFFFFF;
+}
+
+.progress-bar {
+  color: #000!important;
+  background-color: #85fff96b!important;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.progress {
+  color: #000!important;
+  background-color: #276562bf!important;
+}
+
+#click-to-download {
+  color: white;
+  text-decoration: none;
+}
+
+#click-to-download:hover {
+  cursor: pointer;
+}
+
+/* Background video */
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.content {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
 }
