@@ -1,48 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import './App.css'
 
-import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
-const ffmpeg = createFFmpeg();
+import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg'
+const ffmpeg = createFFmpeg()
 
 function App() {
 
-  const [ffmpegLoaded, setFfmpegLoaded] = useState(false);
-  const [video, setVideo] = useState();
-  const [gif, setGif] = useState();
-  const [progress, setProgress] = useState(1);
-  const [progressMessage, setProgressMessage] = useState(1);
+  const [ffmpegLoaded, setFfmpegLoaded] = useState(false)
+  const [video, setVideo] = useState()
+  const [gif, setGif] = useState()
+  const [progress, setProgress] = useState(1)
+  const [progressMessage, setProgressMessage] = useState(1)
 
   const load = async () => {
-    console.log(ffmpeg);
-    const what = await ffmpeg.load();
-    setFfmpegLoaded(true);
+    console.log(ffmpeg)
+    const what = await ffmpeg.load()
+    setFfmpegLoaded(true)
   }
 
   useEffect(() => {
-    load();
-  }, []);
+    load()
+  }, [])
 
   const convertVidToGif = async () => {
-    setGif();
+    setGif()
 
-    ffmpeg.FS('writeFile', 'video-in-memory', await fetchFile(video));
+    ffmpeg.FS('writeFile', 'video-in-memory', await fetchFile(video))
 
-    await ffmpeg.run('-i', 'video-in-memory', '-r', '20', '-f', 'gif', 'out.gif');
+    await ffmpeg.run('-i', 'video-in-memory', '-r', '20', '-f', 'gif', 'out.gif')
 
-    const data = ffmpeg.FS('readFile', 'out.gif');
+    const data = ffmpeg.FS('readFile', 'out.gif')
 
-    const url = URL.createObjectURL(new Blob([data.buffer], {type: 'image/gif'}));
+    const url = URL.createObjectURL(new Blob([data.buffer], {type: 'image/gif'}))
 
-    setGif(url);
+    setGif(url)
   }
 
   ffmpeg.setLogger(({ type, message }) => {
     setProgressMessage(message)
-  });
+  })
   
   ffmpeg.setProgress(({ ratio }) => {
     setProgress(ratio)
-  });
+  })
 
   return ffmpegLoaded ? (
     <div className="App">
@@ -88,7 +88,7 @@ function App() {
       </main>
     </div>
   ) :
-  (<p>Loading ffmpeg... (may not work on some mobile devices)</p>);
+  (<p>Loading ffmpeg... (may not work on some mobile devices)</p>)
 }
 
-export default App;
+export default App
