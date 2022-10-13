@@ -1,6 +1,6 @@
 # Vid2Gif.io
 
-[Live at: https://vid2gif.io](https://vid2gif.io)
+[(currently offline): https://vid2gif.io](https://vid2gif.io)
 
 ## Description 
 
